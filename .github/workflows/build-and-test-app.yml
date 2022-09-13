@@ -1,0 +1,44 @@
+name: Win app driver issue demonstration
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout test code
+        uses: actions/checkout@v3
+
+      - name: Run WinAppDriver
+        run: Start-Process -FilePath "C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe"
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+          architecture: 'x86'
+          cache: 'pip'
+
+      - name: Install requirements
+        run: pip install -r requirements.txt # install test dependencies
+
+      - name: Set full HD resolution
+        run: Set-DisplayResolution -Width 1920 -Height 1080 -Force
+
+      - name: Build tested app
+        working-directory: tested_app
+        run: pyinstaller __main__.spec -y
+
+      - name: Run tests
+        working-directory: tests
+        run: pytest
+
+      - uses: actions/upload-artifact@v3
+        if: success() || failure()
+        with:
+          name: my-artifact
+          path: |
+            tests/app_screenshot.png
+            tests/elements_report.txt
+          retention-days: 7
