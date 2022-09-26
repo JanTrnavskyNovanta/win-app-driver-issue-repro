@@ -25,6 +25,9 @@ jobs:
 
       - name: Set full HD resolution
         run: Set-DisplayResolution -Width 1920 -Height 1080 -Force
+        
+      - name: Check displays
+        run: Get-WmiObject -Class Win32_DesktopMonitor 
 
       - name: Build tested app
         working-directory: tested_app
