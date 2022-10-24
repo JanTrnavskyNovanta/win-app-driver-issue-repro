@@ -18,10 +18,12 @@ def test_bug_demo():
     driver.save_screenshot(f"app_screenshot.png")
     elms = driver.find_elements_by_xpath("//*")
     with open("elements_report.txt", 'w', encoding='utf-8') as f:
-        f.write(f"Window handles: {driver.window_handles}")
+        f.write(f"Window handles: {driver.window_handles}\n")
         f.write(f"Amount of elements found: {len(elms)}\n")
         for elm in elms:
             f.write(f'Element name: {elm.get_attribute("Name")} |  automation id: {elm.get_attribute("AutomationId")}\n')
+        f.write("Page_source:\n")
+        f.write(self.driver.page_source)
     driver.find_element_by_accessibility_id("MainWindow.centralwidget.pushButton").click()
     driver.close_app()
     driver.quit()
