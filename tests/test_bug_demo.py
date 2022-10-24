@@ -23,7 +23,7 @@ def test_bug_demo():
         for elm in elms:
             f.write(f'Element name: {elm.get_attribute("Name")} |  automation id: {elm.get_attribute("AutomationId")}\n')
         f.write("Page_source:\n")
-        f.write(self.driver.page_source)
+        f.write(driver.page_source)
     driver.find_element_by_accessibility_id("MainWindow.centralwidget.pushButton").click()
     driver.close_app()
     driver.quit()
