@@ -1,16 +1,32 @@
 import os
+import subprocess
 
 from appium import webdriver
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 IMPLICIT_TIMEOUT = 10
 
 
 def test_bug_demo():
     desired_caps = {}
-    desired_caps["app"] = os.path.realpath("../tested_app/dist/demo/demo.exe")  # use real path to handle even relative paths
+    proc = subprocess.Popen(os.path.realpath("../tested_app/dist/demo/demo.exe"))  # use real path to handle even relative paths
+    desired_caps["app"] = "Root"
     desired_caps["ms:experimental-webdriver"] = False
     desired_caps["ms:waitForAppLaunch"] = 20
     desired_caps["createSessionTimeout"] = 50000
+    driver = webdriver.Remote(
+        command_executor='http://127.0.0.1:4723',
+        desired_capabilities=desired_caps)
+    WebDriverWait(driver, 30).until(
+        EC.presence_of_element_located((By.XPATH, "//*[@Name='MainWindow']")))
+    app_process_id = hex(int(driver.find_element_by_xpath("//*[@Name='MainWindow']").get_attribute(
+        "NativeWindowHandle")))
+    driver.close()
+    desired_caps["app"] = None
+    desired_caps["appTopLevelWindow"] = app_process_id
     driver = webdriver.Remote(
         command_executor='http://127.0.0.1:4723',
         desired_capabilities=desired_caps)
