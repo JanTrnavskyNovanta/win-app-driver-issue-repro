@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>60</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="accessibleName">
+     <string>TestButton</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>100</y>
+      <width>84</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="accessibleName">
+     <string>TestRadioButton</string>
+    </property>
+    <property name="text">
+     <string>RadioButton</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>72</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="accessibleName">
+     <string>TestCheckBox</string>
+    </property>
+    <property name="text">
+     <string>CheckBox</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionDummyAnother"/>
+   </widget>
+   <widget class="QMenu" name="menuAnother_Option">
+    <property name="title">
+     <string>Another Option</string>
+    </property>
+    <addaction name="actionAnother_option1"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuAnother_Option"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNew">
+   <property name="text">
+    <string>DummyNew</string>
+   </property>
+  </action>
+  <action name="actionDummyAnother">
+   <property name="text">
+    <string>DummyAnother</string>
+   </property>
+  </action>
+  <action name="actionAnother_option1">
+   <property name="text">
+    <string>Another option1</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,17 @@
+Window handles: ['0x005F0F9A']Amount of elements found: 16
+Element name: MainWindow |  automation id: MainWindow
+Element name: None |  automation id: None
+Element name: System |  automation id: MenuBar
+Element name: System |  automation id: None
+Element name: Minimize |  automation id: None
+Element name: Maximize |  automation id: None
+Element name: Close |  automation id: None
+Element name: None |  automation id: MainWindow.centralwidget
+Element name: TestButton |  automation id: MainWindow.centralwidget.pushButton
+Element name: TestRadioButton |  automation id: MainWindow.centralwidget.radioButton
+Element name: TestCheckBox |  automation id: MainWindow.centralwidget.checkBox
+Element name: None |  automation id: MainWindow.menubar
+Element name: File |  automation id: None
+Element name: Another Option |  automation id: None
+Element name: None |  automation id: MainWindow.statusbar
+Element name: None |  automation id: None
